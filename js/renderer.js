@@ -1,6 +1,7 @@
 const VERSE_MAP = {
   classic: 'классический',
   nonclassic: 'неклассический',
+  unspecified: 'не указан',
   all: 'любой'
 };
 
