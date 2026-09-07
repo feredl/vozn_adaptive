@@ -44,7 +44,13 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .header-copy {
+            flex: 1 1 360px;
+            min-width: 0;
         }
 
         h1 {
@@ -68,6 +74,22 @@
             display: flex;
             gap: 24px;
             font-size: 14px;
+            flex-wrap: wrap;
+        }
+
+        .header-art {
+            width: min(260px, 32vw);
+            min-width: 120px;
+            height: 120px;
+            border-radius: 18px;
+            border: 1px solid #d8d0c7;
+            background-color: #f0ebe4;
+            background-image: url('header-art.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: inset 0 0 0 1px rgba(42, 37, 32, 0.04);
+            flex-shrink: 0;
         }
 
         .header-links a {
@@ -159,11 +181,17 @@
             min-height: 280px;
             margin-bottom: 32px;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
 
         .poem-tags {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 10px;
             margin-bottom: 24px;
         }
@@ -187,13 +215,17 @@
             font-weight: 600;
             margin-bottom: 20px;
             color: #1a1510;
+            text-align: center;
         }
 
         .poem-text {
+            width: 100%;
+            max-width: 760px;
             font-size: 16px;
             line-height: 1.7;
             white-space: pre-wrap;
             color: #2a2520;
+            text-align: center;
         }
 
         .no-results {
@@ -293,10 +325,11 @@
 <body>
     <div class="container">
         <header>
-            <div>
+            <div class="header-copy">
                 <h1>Андрей Вознесенский</h1>
                 <div class="subtitle">адаптивное издание</div>
             </div>
+            <div class="header-art" aria-label="Abstract header illustration" title="Abstract header illustration"></div>
             <nav class="header-links">
                 <a href="about.html" class="link-about">описание проекта</a>
                 <a href="#" class="link-random" id="random-link">случайное стихотворение</a>
