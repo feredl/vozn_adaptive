@@ -163,14 +163,22 @@
 
         .poem-tags {
             display: flex;
-            gap: 16px;
-            font-size: 13px;
-            color: #8a8074;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-bottom: 24px;
         }
 
         .poem-tags span {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: #f0ebe4;
+            border: 1px solid #d7cec3;
+            color: #4a4238;
+            font-size: 12px;
             font-style: italic;
+            letter-spacing: 0.1px;
         }
 
         .poem-title {

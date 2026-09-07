@@ -66,9 +66,9 @@ function render() {
     card.innerHTML = `
         <h2 class="poem-title">${escapeHtml(titleText)}</h2>
         <div class="poem-tags">
-            <span>стих ${verseLabel}</span>
-            <span>сложность ${compLabel}</span>
-            <span>тема ${poem.topic}</span>
+            <span>стих: ${verseLabel}</span>
+            <span>сложность: ${compLabel}</span>
+            <span>тема: ${poem.topic}</span>
         </div>
         <div class="poem-text">${escapeHtml(poem.text)}</div>`;
 
