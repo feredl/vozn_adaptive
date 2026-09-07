@@ -64,11 +64,13 @@ function render() {
     const titleText = !poem.title || poem.title === 'Без названия' ? '...' : poem.title;
 
     card.innerHTML = `
-        <h2 class="poem-title">${escapeHtml(titleText)}</h2>
-        <div class="poem-tags">
-            <span>стих: ${verseLabel}</span>
-            <span>сложность: ${compLabel}</span>
-            <span>тема: ${poem.topic}</span>
+        <div class="poem-header">
+            <h2 class="poem-title">${escapeHtml(titleText)}</h2>
+            <div class="poem-tags">
+                <span>стих: ${verseLabel}</span>
+                <span>сложность: ${compLabel}</span>
+                <span>тема: ${poem.topic}</span>
+            </div>
         </div>
         <div class="poem-text">${escapeHtml(poem.text)}</div>`;
 
