@@ -50,13 +50,6 @@ function render() {
 
     if (filteredPoems.length === 0) {
         card.innerHTML = `
-            <div class="poem-dash"></div>
-            <hr class="poem-divider">
-            <div class="poem-tags">
-                <span>стих любой</span>
-                <span>сложность любая</span>
-                <span>тема все темы</span>
-            </div>
             <div class="no-results">
                 <strong>Нет стихотворений, соответствующих выбранным критериям.</strong><br>
                 Измените настройки фильтра.
@@ -70,14 +63,12 @@ function render() {
     const compLabel = poem.complexity === 'simple' ? 'простой' : 'сложный';
 
     card.innerHTML = `
-        <div class="poem-dash"></div>
-        <hr class="poem-divider">
+        ${poem.title !== 'Без названия' ? `<h2 class="poem-title">${escapeHtml(poem.title)}</h2>` : ''}
         <div class="poem-tags">
             <span>стих ${verseLabel}</span>
             <span>сложность ${compLabel}</span>
             <span>тема ${poem.topic}</span>
         </div>
-        ${poem.title !== 'Без названия' ? `<h2 class="poem-title">${escapeHtml(poem.title)}</h2>` : ''}
         <div class="poem-text">${escapeHtml(poem.text)}</div>`;
 
     counter.textContent = `показано: ${currentIndex + 1} (из ${filteredPoems.length})`;
