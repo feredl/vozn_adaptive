@@ -3,8 +3,8 @@ let filteredPoems = [];
 let currentIndex = 0;
 
 const filters = {
-    verse: 'classic',
-    complexity: 'simple',
+    verse: 'all',
+    complexity: 'all',
     topic: 'all'
 };
 
@@ -34,8 +34,8 @@ async function loadData() {
 
 function applyFilters() {
     filteredPoems = allPoems.filter(p => {
-        if (filters.verse && p.verse !== filters.verse) return false;
-        if (filters.complexity && p.complexity !== filters.complexity) return false;
+        if (filters.verse !== 'all' && p.verse !== filters.verse) return false;
+        if (filters.complexity !== 'all' && p.complexity !== filters.complexity) return false;
         if (filters.topic !== 'all' && p.topic !== filters.topic) return false;
         return true;
     });
@@ -97,13 +97,13 @@ function showNext() {
 }
 
 function resetFilters() {
-    filters.verse = 'classic';
-    filters.complexity = 'simple';
+    filters.verse = 'all';
+    filters.complexity = 'all';
     filters.topic = 'all';
 
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector('[data-filter="verse"][data-value="classic"]').classList.add('active');
-    document.querySelector('[data-filter="complexity"][data-value="simple"]').classList.add('active');
+    document.querySelector('[data-filter="verse"][data-value="all"]').classList.add('active');
+    document.querySelector('[data-filter="complexity"][data-value="all"]').classList.add('active');
     document.getElementById('topic-select').value = 'all';
 
     applyFilters();
