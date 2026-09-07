@@ -102,8 +102,6 @@ function resetFilters() {
     filters.topic = 'all';
 
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector('[data-filter="verse"][data-value="all"]').classList.add('active');
-    document.querySelector('[data-filter="complexity"][data-value="all"]').classList.add('active');
     document.getElementById('topic-select').value = 'all';
 
     applyFilters();
@@ -113,9 +111,18 @@ function resetFilters() {
 document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         const group = btn.dataset.filter;
+        const value = btn.dataset.value;
+
+        if (btn.classList.contains('active')) {
+            btn.classList.remove('active');
+            filters[group] = 'all';
+            applyFilters();
+            return;
+        }
+
         document.querySelectorAll(`[data-filter="${group}"]`).forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        filters[group] = btn.dataset.value;
+        filters[group] = value;
         applyFilters();
     });
 });
