@@ -61,9 +61,10 @@ function render() {
     const poem = filteredPoems[currentIndex];
     const verseLabel = poem.verse === 'classic' ? 'классический' : 'неклассический';
     const compLabel = poem.complexity === 'simple' ? 'простой' : 'сложный';
+    const titleText = !poem.title || poem.title === 'Без названия' ? '...' : poem.title;
 
     card.innerHTML = `
-        ${poem.title !== 'Без названия' ? `<h2 class="poem-title">${escapeHtml(poem.title)}</h2>` : ''}
+        <h2 class="poem-title">${escapeHtml(titleText)}</h2>
         <div class="poem-tags">
             <span>стих ${verseLabel}</span>
             <span>сложность ${compLabel}</span>
